@@ -395,45 +395,35 @@ html, body {
 </body>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const burgerMenu = document.getElementById("burgerMenu");
-    const burgerMenuOpened = document.getElementById("burgerMenuOpened");
-    const dropdown = document.getElementById("dropdownOverlay");
-    const dropdownInner = document.getElementById("dropdown");
-
-    const mobileDiv = document.getElementById("mobileDiv");
-    const desktopDiv = document.getElementById("desktopDiv");
-
+    document.addEventListener("DOMContentLoaded", function () {
+        const burgerMenu = document.getElementById("burgerMenu");
+        const burgerMenuOpened = document.getElementById("burgerMenuOpened");
+        const dropdown = document.getElementById("dropdownOverlay");
+        const dropdownInner = document.getElementById("dropdown");
+    
+        function toggleContent() {
+            const isMobile = window.innerWidth <= 768;
+            const isDesktop = window.innerWidth > 768;
+            document.getElementById("desktopDiv").style.display = isMobile ? "none" : "block";
+            document.getElementById("mobileDiv").style.display = isDesktop ? "none" : "block";
+        }
+    
+        window.addEventListener("resize", toggleContent);
+        toggleContent(); // Run on initial load
+    });
+    
+    // Define functions globally
     function openDropdown() {
-        dropdown.classList.remove("hidden");
-        dropdownInner.classList.add("slideIn");
-        burgerMenu.classList.add("hidden");
-        burgerMenuOpened.classList.remove("hidden");
+        document.getElementById("dropdownOverlay").classList.remove("hidden");
+        document.getElementById("dropdown").classList.add("slideIn");
+        document.getElementById("burgerMenu").classList.add("hidden");
+        document.getElementById("burgerMenuOpened").classList.remove("hidden");
     }
-
+    
     function closeDropdown() {
-        dropdown.classList.add("hidden");
-        burgerMenu.classList.remove("hidden");
-        burgerMenuOpened.classList.add("hidden");
+        document.getElementById("dropdownOverlay").classList.add("hidden");
+        document.getElementById("burgerMenu").classList.remove("hidden");
+        document.getElementById("burgerMenuOpened").classList.add("hidden");
     }
-
-    function toggleContent() {
-    const isMobile = window.innerWidth <= 768;
-    const isDesktop = window.innerWidth > 768;
-
-    if (isMobile) {
-        desktopDiv.style.display = "none"; // Hide desktop content on mobile
-        mobileDiv.style.display = "block"; // Show mobile content on mobile
-    } else if (isDesktop) {
-        mobileDiv.style.display = "none"; // Hide mobile content on desktop
-        desktopDiv.style.display = "block"; // Show desktop content on desktop
-    }
-}
-
-    window.addEventListener("resize", toggleContent);
-    toggleContent(); // Run on initial load
-});
-
-
-</script>
+    </script>
 </html>
