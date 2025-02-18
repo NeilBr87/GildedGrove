@@ -26,7 +26,7 @@ html, body {
     justify-content: center;
     align-items: center;
     padding: 0 10px;
-    gap: 2rem; /* Reduced from 5vw */
+    gap: 6vw; /* Reduced from 5vw */
     flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
 }
 
@@ -39,8 +39,10 @@ html, body {
 }
 
 .primaryTitle {
-    margin-bottom: -10px;
-    font-family: "Noto Serif", serif;
+    font-family: "Ephesis", serif;
+        font-weight: bold;
+        font-size: 48px;
+        margin-bottom: -10px;
 }
 
 .mainImg {
@@ -116,6 +118,41 @@ html, body {
     justify-content: center;
     align-items: center;
     margin-top: 5vh;
+}
+
+footer {
+    width: 100%;
+    height: 16vh;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Keeps it within the flow */
+    background-color: #ececec;
+    font-size: 14px;
+    border-top: 1px solid black;
+}
+
+.footerIconRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.footerOuterRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+}
+
+.footerIcons {
+    width: 2vw;
 }
 
 @keyframes scroll {
@@ -340,28 +377,46 @@ html, body {
             </div>
             <div class="productDiv">
                 <img src="Img2.png" alt="Image 1">
-                <p>"The Hendrix"</p>    
-                <i style="font-size: 10px;">Onyx with a silver-wrought guitar design</i>
+                <p>"The Slytherin"</p>    
+                <i style="font-size: 10px;">Emerald with a rose guild design</i>
                 <p style="font-size: 14px; font-weight: bold">£12</p>
                 <button class="buyButton">Buy</button>
             </div>
             <div class="productDiv">
                 <img src="Img3.png" alt="Image 1">
-                <p>"The Hendrix"</p>    
-                <i style="font-size: 10px;">Onyx with a silver-wrought guitar design</i>
+                <p>"The Eyeglass"</p>   
+                <i style="font-size: 10px;">Opal with a silver twist</i>
                 <p style="font-size: 14px; font-weight: bold">£12</p>
                 <button class="buyButton">Buy</button>
             </div>
             <div class="productDiv">
-                <img src="Img2.png" alt="Image 1">
+                <img src="Img1.png" alt="Image 1">
                 <p>"The Hendrix"</p>    
                 <i style="font-size: 10px;">Onyx with a silver-wrought guitar design</i>
                 <p style="font-size: 14px; font-weight: bold">£12</p>
                 <button class="buyButton">Buy</button>
             </div>
-
+            
         </div>
     
+
+        <footer>
+            <div class="footerOuterRow">
+
+            <div class="footerIconRow">
+                <img class="footerIcons" src="Facebook.svg" alt="Facebook">
+                <img class="footerIcons" src="Insta.png" alt="Instagram">
+                <img class="footerIcons" src="TikTok.png" alt="Twitter">
+                <img class="footerIcons" src="YouTube.png" alt="YouTube">
+            </div>
+            <div class="footerIconRow">
+                <img class="footerIcons" src="Visa.png" alt="Visa">
+                <img class="footerIcons" src="Mastercard.png" alt="Mastercard">
+                <img class="footerIcons" src="PayPal.png" alt="PayPal">
+            </div>
+        </div>
+            <p style="margin-top: 4vh; margin-bottom: -10px;">Copyright Gilded Grove 2025</p>
+        </footer>        
     </div>
 
 
