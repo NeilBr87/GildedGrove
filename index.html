@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+
+    <div id="desktopDiv">
+
+        <div class="titleCol">
+            <h1 class="primaryTitle">Gilded <span>Grove</span></h1>
+            <h5>Bespoke, handmade jewellery crafted sustainably in the heart of Kent</h5>
+        </div>
+
+        <div class="navBarRow">
+            <p>Home</p>
+            <p>Collection</p>
+            <p>About</p>
+            <p>Socials</p>
+            <p>Contact</p>
+        </div>
+
+
+        <div>
+            <img class="mainImg" src="Img1.png" alt="Image1">
+        </div>
+
+        <div class="scroller-container">
+            <div class="scroller">
+                <div>Handmade</div>
+                <div>Sustainable</div>
+                <div>Authentic</div>
+            </div>
+        </div>
+
+        <div class="searchbarContainer">
+            <input placeholder="Search our catalogue" type="text" class="searchBar">
+        </div>
+        <h3 style="text-align: center; margin-top: 3vh; margin-bottom: 5vh">Browse our Collection</h3>
+
+        <div class="image-container">
+            <div class="productDiv">
+                <img src="Img1.png" alt="Image 1">
+                <p>"The Hendrix"</p>    
+                <i style="font-size: 10px;">Onyx with a silver-wrought guitar design</i>
+                <p style="font-size: 14px; font-weight: bold">£12</p>
+                <button class="buyButton">Buy</button>
+            </div>
+            <div class="productDiv">
+                <img src="Img2.png" alt="Image 1">
+                <p>"The Hendrix"</p>    
+                <i style="font-size: 10px;">Onyx with a silver-wrought guitar design</i>
+                <p style="font-size: 14px; font-weight: bold">£12</p>
+                <button class="buyButton">Buy</button>
+            </div>
+            <div class="productDiv">
+                <img src="Img3.png" alt="Image 1">
+                <p>"The Hendrix"</p>    
+                <i style="font-size: 10px;">Onyx with a silver-wrought guitar design</i>
+                <p style="font-size: 14px; font-weight: bold">£12</p>
+                <button class="buyButton">Buy</button>
+            </div>
+            <div class="productDiv">
+                <img src="Img2.png" alt="Image 1">
+                <p>"The Hendrix"</p>    
+                <i style="font-size: 10px;">Onyx with a silver-wrought guitar design</i>
+                <p style="font-size: 14px; font-weight: bold">£12</p>
+                <button class="buyButton">Buy</button>
+            </div>
+
+        </div>
+    
+    </div>
+
+    <div id="mobileDiv">
+
+        <div class="titleCol">
+
+            <h1 class="primaryTitle">Gilded <span>Grove</span></h1>
+    
+            <h5>Bespoke, handmade jewellery crafted sustainably in the heart of Kent</h5>
+
+        </div>
+
+        <img id="burgerMenu" src="Closed.png" alt="closed" onclick="openDropdown()">
+        <img class="hidden" id="burgerMenuOpened" src="Opened.png" alt="opened" onclick="closeDropdown()">
+
+        <div id="dropdownOverlay" class="hidden">
+            <div id="dropdown">
+                <h3>Menu</h3>
+                <p>Home</p>
+                <p>Collection</p>
+                <p>About</p>
+                <p>Socials</p>
+            </div>
+        </div>
+        
+        <div class="mainImgMob">
+            <button class="buyButton">Browse on Shopify</button>
+        </div>
+
+        <h4 style="text-align: center">Browse our Collection</h4>
+
+        <div class="imageColumn">
+            <div class="imageCard">
+                <img class="imageInd" src="https://silverandstone.co.uk/cdn/shop/files/New-lilly-bangle-with-heart.jpg?crop=region&crop_height=700&crop_left=60&crop_top=0&crop_width=700&v=1712244658&width=480">
+                <h5>Pearl inset gold leaf</h5>
+                <p>£12</p>
+                <button class="buyButton">Buy</button>
+            </div>
+            <div class="imageCard">
+                <img class="imageInd" src="https://silverandstone.co.uk/cdn/shop/files/New-lilly-bangle-with-heart.jpg?crop=region&crop_height=700&crop_left=60&crop_top=0&crop_width=700&v=1712244658&width=480">
+                <h5>Pearl inset gold leaf</h5>
+                <p>£12</p>
+                <button class="buyButton">Buy</button>
+            </div>
+            <div class="imageCard">
+                <img class="imageInd" src="https://silverandstone.co.uk/cdn/shop/files/New-lilly-bangle-with-heart.jpg?crop=region&crop_height=700&crop_left=60&crop_top=0&crop_width=700&v=1712244658&width=480">
+                <h5>Pearl inset gold leaf</h5>
+                <p>£12</p>
+                <button class="buyButton">Buy</button>
+            </div>
+            <div class="imageCard">
+                <img class="imageInd" src="https://silverandstone.co.uk/cdn/shop/files/New-lilly-bangle-with-heart.jpg?crop=region&crop_height=700&crop_left=60&crop_top=0&crop_width=700&v=1712244658&width=480">
+                <h5>Pearl inset gold leaf</h5>
+                <p>£12</p>
+                <button class="buyButton">Buy</button>
+            </div>
+            </div>
+
+    </div>
+
+
+
+    </div>
+</body>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const burgerMenu = document.getElementById("burgerMenu");
+    const burgerMenuOpened = document.getElementById("burgerMenuOpened");
+    const dropdown = document.getElementById("dropdownOverlay");
+    const dropdownInner = document.getElementById("dropdown");
+
+    const mobileDiv = document.getElementById("mobileDiv");
+    const desktopDiv = document.getElementById("desktopDiv");
+
+    function openDropdown() {
+        dropdown.classList.remove("hidden");
+        dropdownInner.classList.add("slideIn");
+        burgerMenu.classList.add("hidden");
+        burgerMenuOpened.classList.remove("hidden");
+    }
+
+    function closeDropdown() {
+        dropdown.classList.add("hidden");
+        burgerMenu.classList.remove("hidden");
+        burgerMenuOpened.classList.add("hidden");
+    }
+
+    function toggleContent() {
+    const isMobile = window.innerWidth <= 768;
+    const isDesktop = window.innerWidth > 768;
+
+    if (isMobile) {
+        desktopDiv.style.display = "none"; // Hide desktop content on mobile
+        mobileDiv.style.display = "block"; // Show mobile content on mobile
+    } else if (isDesktop) {
+        mobileDiv.style.display = "none"; // Hide mobile content on desktop
+        desktopDiv.style.display = "block"; // Show desktop content on desktop
+    }
+}
+
+    window.addEventListener("resize", toggleContent);
+    toggleContent(); // Run on initial load
+});
+
+
+</script>
+</html>
