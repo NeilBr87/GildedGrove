@@ -8,8 +8,7 @@
 <body>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lugrasimo&family=Marck+Script&family=Mea+Culpa&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Walter+Turncoat&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&family=Lugrasimo&family=Marck+Script&family=Mea+Culpa&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Walter+Turncoat&display=swap');
 
 * {
     box-sizing: border-box;
@@ -140,35 +139,23 @@ html, body {
     }
     
     
-    .titleCol {
+    .titleRow {
         display: flex;
-        flex-direction: column;
-        justify-content: baseline;
+        flex-direction: row;
+        justify-content: center;
         align-items: center;
         text-align: center;
-        width: 80vw;
-        margin: 0 auto;
+        gap: 20vw;
+        height: 10vh;
     }
     
-    .primaryTitle {
-        margin-bottom: -10px;
-        font-family: "Noto Serif", serif;
+    .primaryTitleMob {
+        font-family: "Ephesis", serif;
+        font-weight: bold;
+        font-size: 24px;
     }
-        
-    #burgerMenu {
-        position: absolute;
-        top: 6px;
-        right: 6px;
-        width: 12vw;
-    }
-    
-    #burgerMenuOpened {
-        position: absolute;
-        top: 6px;
-        right: 6px;
-        width: 12vw;
-        z-index: 999; /* Ensures it's on top of other elements */
-    }
+
+
     
     #dropdownOverlay {
         background-color: rgba(40, 40, 40, 0.5);
@@ -186,7 +173,8 @@ html, body {
     
     .mainImgMob {
         width: 100%;
-        background: url(https://silverandstone.co.uk/cdn/shop/files/Stars-and-moon-necklace-300.jpg?v=1712143260&width=300);
+        background: url(Img1.png);
+        background-size: cover;
         height: 50vh;
         display: flex;
         flex-direction: column;
@@ -203,8 +191,10 @@ html, body {
         height: 100vh; /* Full viewport height */
         z-index: 998; /* Ensures it's on top of other elements */
         background-color: #BCBDC0;
-        padding-left: 10vw;
-        padding-top: 10vh;
+        padding-right: 10vw;
+        padding-top: 3vh;
+        text-align: right;
+        font-size: 14px;
     }
     
     .slideIn {
@@ -246,7 +236,39 @@ html, body {
         width: 70vw;
     
     }
+
+    .topBarIcons {
+        width: 12vw;
+    }
     
+    .topBarIconsSearch {
+        width: 6vw;
+    }
+
+    #burgerMenuOpened {
+        width: 8vw;
+    }
+
+    #mobileSearch {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1vh;
+        margin-bottom: 2vh;
+    }
+
+    footer {
+    width: 100%;
+    height: 5vh;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Keeps it within the flow */
+    background-color: #d0cece;
+    font-size: 14px;
+}
     
 }
 
@@ -258,6 +280,17 @@ html, body {
     100% {
       transform: translateX(0);
       opacity: 1;
+    }
+}
+
+@keyframes slideOutToRight {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100%);
+      opacity: 0;
     }
 }
     </style>
@@ -331,26 +364,34 @@ html, body {
     
     </div>
 
+
+
+
+
+    
+
     <div id="mobileDiv">
 
-        <div class="titleCol">
-
-            <h1 class="primaryTitle">Gilded <span>Grove</span></h1>
-    
-            <h5>Bespoke, handmade jewellery crafted sustainably in the heart of Kent</h5>
+        <div class="titleRow">
+            <img class="topBarIconsSearch" src="Search.png" alt="closed" onclick="openSearch()">
+            <p class="primaryTitleMob">Gilded <span>Grove</span></p>
+            <img class="topBarIcons" src="Closed.png" alt="closed" onclick="openDropdown()">
 
         </div>
 
-        <img id="burgerMenu" src="Closed.png" alt="closed" onclick="openDropdown()">
-        <img class="hidden" id="burgerMenuOpened" src="Opened.png" alt="opened" onclick="closeDropdown()">
-
+        <div id="mobileSearch" class="hidden">
+            <input placeholder="Search our catalogue" type="text" class="searchBar">
+        </div>
+        
         <div id="dropdownOverlay" class="hidden">
             <div id="dropdown">
-                <h3>Menu</h3>
+                <img id="burgerMenuOpened" src="Opened.png" alt="opened" onclick="closeDropdown()">
+                <h3 style="margin-top: 10vh">Menu</h3>
                 <p>Home</p>
                 <p>Collection</p>
                 <p>About</p>
                 <p>Socials</p>
+                <p>Contact</p>
             </div>
         </div>
         
@@ -362,30 +403,34 @@ html, body {
 
         <div class="imageColumn">
             <div class="imageCard">
-                <img class="imageInd" src="https://silverandstone.co.uk/cdn/shop/files/New-lilly-bangle-with-heart.jpg?crop=region&crop_height=700&crop_left=60&crop_top=0&crop_width=700&v=1712244658&width=480">
+                <img class="imageInd" src="Img1.png">
                 <h5>Pearl inset gold leaf</h5>
                 <p>£12</p>
                 <button class="buyButton">Buy</button>
             </div>
             <div class="imageCard">
-                <img class="imageInd" src="https://silverandstone.co.uk/cdn/shop/files/New-lilly-bangle-with-heart.jpg?crop=region&crop_height=700&crop_left=60&crop_top=0&crop_width=700&v=1712244658&width=480">
+                <img class="imageInd" src="Img2.png">
                 <h5>Pearl inset gold leaf</h5>
                 <p>£12</p>
                 <button class="buyButton">Buy</button>
             </div>
             <div class="imageCard">
-                <img class="imageInd" src="https://silverandstone.co.uk/cdn/shop/files/New-lilly-bangle-with-heart.jpg?crop=region&crop_height=700&crop_left=60&crop_top=0&crop_width=700&v=1712244658&width=480">
+                <img class="imageInd" src="Img3.png">
                 <h5>Pearl inset gold leaf</h5>
                 <p>£12</p>
                 <button class="buyButton">Buy</button>
             </div>
             <div class="imageCard">
-                <img class="imageInd" src="https://silverandstone.co.uk/cdn/shop/files/New-lilly-bangle-with-heart.jpg?crop=region&crop_height=700&crop_left=60&crop_top=0&crop_width=700&v=1712244658&width=480">
+                <img class="imageInd" src="Img1.png">
                 <h5>Pearl inset gold leaf</h5>
                 <p>£12</p>
                 <button class="buyButton">Buy</button>
             </div>
             </div>
+
+            <footer>
+                Copyright Gilded Grove 2025
+            </footer>
 
     </div>
 
@@ -400,7 +445,8 @@ html, body {
         const burgerMenuOpened = document.getElementById("burgerMenuOpened");
         const dropdown = document.getElementById("dropdownOverlay");
         const dropdownInner = document.getElementById("dropdown");
-    
+        const mobileSearch = document.getElementById("mobileSearch");
+        let searchOpen = false;
         function toggleContent() {
             const isMobile = window.innerWidth <= 768;
             const isDesktop = window.innerWidth > 768;
@@ -424,6 +470,14 @@ html, body {
         document.getElementById("dropdownOverlay").classList.add("hidden");
         document.getElementById("burgerMenu").classList.remove("hidden");
         document.getElementById("burgerMenuOpened").classList.add("hidden");
+    }
+
+    function openSearch() {
+        if (document.getElementById("mobileSearch").classList.contains("hidden")) {
+            document.getElementById("mobileSearch").classList.remove("hidden");
+        } else {
+            document.getElementById("mobileSearch").classList.add("hidden");
+        }
     }
     </script>
 </html>
